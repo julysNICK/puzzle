@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+
+    <PuzzlesComponent @puzzle-changed="selectedPuzzleId = $event" />
+    <RecordsComponent />
+    <SliderPuzzleComponent :puzzle-id="selectedPuzzleId" />
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SliderPuzzleComponent from './components/SliderPuzzle.vue'
+import PuzzlesComponent from './components/Puzzles.vue'
+import RecordsComponent from './components/Records.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SliderPuzzleComponent,
+    PuzzlesComponent,
+    RecordsComponent
+  },
+
+  data() {
+    return {
+      selectedPuzzleId: "cut-pink"
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
